@@ -1,2 +1,13 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Elegance Restaurant</h1>
+
+<div class="jumbotron">
+  <h1 class="display-3">Welcome to Elegance</h1>
+  <p class="lead">Enjoy your meal</p>
+  <p class="lead">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to 'Menu', menu_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Contact Us', contact_path, class: 'btn btn-secondary' %>
+	</div>
+  </p>
+</div>
+
