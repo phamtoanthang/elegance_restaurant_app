@@ -1,23 +1,29 @@
+<div class="container">
+
 <% @sections.each do |section| %>
   <%= link_to section, menu_path(section: section) %>
 <% end %>
 
-<table>
-  <tbody>
-    <% @items_by_section.each do |food_item| %>
-      <tr>
-        <td><%= food_item.name %></td>
-        <td><%= food_item.description %></td>
-        <td><%= food_item.price %></td>
-        <td><%= food_item.section %></td>
-        <td><%= food_item.url %></td>
-        <td><%= link_to 'Show', food_item %></td>
-        <td><%= link_to 'Edit', edit_food_item_path(food_item) %></td>
-        <td><%= link_to 'Destroy', food_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="nav nav-pills">
+  <% @sections.each do |section| %>
+    <li class="nav-item">
+    <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section ? 'active' : ''}" %>
+  	</li>
+  <% end %>
+</ul>
+
+<% @items_by_section.each do |food_item| %>
+    <div class="card">
+		 <div class="card-block">
+		 	<%= food_item.name %>
+		 </div>
+		 <div class="card-block">
+		 	<%= image_tag food_item.url_or_auto %>
+		 </div>
+	</div>
+<% end %>
+
+
 
 <table>
   <tbody>
@@ -35,3 +41,5 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
