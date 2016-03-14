@@ -1,8 +1,5 @@
 <div class="container">
 
-<% @sections.each do |section| %>
-  <%= link_to section, menu_path(section: section) %>
-<% end %>
 
 <ul class="nav nav-pills">
   <% @sections.each do |section| %>
@@ -13,18 +10,28 @@
 </ul>
 
 <% @items_by_section.each do |food_item| %>
-    <div class="card">
-		 <div class="card-block">
-		 	<%= food_item.name %>
-		 </div>
-		 <div class="card-block">
-		 	<%= image_tag food_item.url_or_auto %>
-		 </div>
+  <div class="row">
+    <div class="col-sm-4">
+	    <table>
+	      <tbody>
+	        <tr>
+	          <td><%= food_item.name %></td>
+	          <td><span class="label label-pill label-primary"><%= food_item.price %></span></td>
+	        </tr>
+	      </tbody>
+	    </table>
 	</div>
+	<div class="col-sm-4">
+		<%= image_tag food_item.url_or_auto %>
+	</div>
+	<div class="col-sm-4">
+		<%= food_item.description %>
+	</div>	
+  </div>
 <% end %>
 
 
-
+<%= link_to @name, menu_path(name: @name) %>
 <table>
   <tbody>
     <% @items_by_name.each do |food_item| %>
