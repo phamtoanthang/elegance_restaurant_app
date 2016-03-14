@@ -1,1 +1,7 @@
-<%= render search %>
+<h1> Menu Search </h1>
+
+<% if @items_by_search.present? %>
+    <%= render 'search' %>
+  <% elsif params[:search] != nil %>
+    <p>There is no food containing the term(s) <%= params[:search] %>.</p>
+<% end %>
