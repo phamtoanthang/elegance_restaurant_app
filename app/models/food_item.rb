@@ -4,8 +4,18 @@ class FoodItem < ActiveRecord::Base
   end
   
   def self.sort_by_name(name)
-  	order(name: :asc)
+  	order(name: :ASC)
   end
+
+  def self.sort_by_price(price)
+    if price == "Increasing"
+      order(price: :ASC)
+    else
+      order(price: :DESC)
+    end
+
+  end
+
 
   def url_or_auto
   	if url.present?

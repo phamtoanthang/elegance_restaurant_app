@@ -1,12 +1,9 @@
 <div class="container">
 
-
 <%= form_tag(search_path, :method => "get", id: "search-form", class: "form-inline pull-xs-right") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search.." %>
   <%= submit_tag "Search", class: "btn btn-success-outline" %>
-
 <% end %>
-
 
 <ul class="nav nav-pills">
   <% @sections.each do |section| %>
@@ -14,9 +11,19 @@
     <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section ? 'active' : ''}" %>
   	</li>
   <% end %>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="<%= menu_path(name: "name", section: params[:section]) %>">Alphabet</a>
+      <a class="dropdown-item" href="<%= menu_path(price: "Increasing", section: params[:section]) %>">Price Up</a>
+      <a class="dropdown-item" href="<%= menu_path(price: "Decreasing", section: params[:section]) %>">Price Down</a>
+    </div>
+  </li>
+
 </ul>
 
-<% @items_by_section.each do |food_item| %>
+<% @items_sort.each do |food_item| %>
   <div class="row">
     <div class="col-sm-4">
 	    <table>
@@ -38,22 +45,6 @@
 <% end %>
 
 
-<%= link_to @name, menu_path(name: @name) %>
-<table>
-  <tbody>
-    <% @items_by_name.each do |food_item| %>
-      <tr>
-        <td><%= food_item.name %></td>
-        <td><%= food_item.description %></td>
-        <td><%= food_item.price %></td>
-        <td><%= food_item.section %></td>
-        <td><%= food_item.url %></td>
-        <td><%= link_to 'Show', food_item %></td>
-        <td><%= link_to 'Edit', edit_food_item_path(food_item) %></td>
-        <td><%= link_to 'Destroy', food_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
 </div>
