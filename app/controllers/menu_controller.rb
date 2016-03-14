@@ -7,15 +7,6 @@ class MenuController < ApplicationController
     @items_by_section_sorted_by_name = FoodItem.filter_by_section(params[:section]).sort_by_name(params[:name])
     @items_by_section_sorted_by_price =  FoodItem.filter_by_section(params[:section]).sort_by_price(params[:price])
 
-
-
-    # @items_by_name = FoodItem.all.sort_by_name(params[:name])    #sort by name 
-
-    @items_test = FoodItem.filter_by_section(params[:section]).sort_by_price("Increasing")
-
-    # @items_by_price = FoodItem.all.sort_by_price(params[:price])    #sort by price
-
-
     if params[:name] == "name" 
       @items_sort = @items_by_section_sorted_by_name
     elsif params[:price] != nil 
