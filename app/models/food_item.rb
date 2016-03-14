@@ -15,4 +15,8 @@ class FoodItem < ActiveRecord::Base
   	end
   end
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%") 
+  end
+
 end
