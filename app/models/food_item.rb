@@ -1,4 +1,5 @@
 class FoodItem < ActiveRecord::Base
+  has_many :orders
   def self.filter_by_section(section)
   	where(section: section)
   end

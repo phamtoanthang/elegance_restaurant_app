@@ -1,0 +1,12 @@
+<div class="container">
+
+<h1> Thanks. Here are the details of your order: </h1>
+<%= render 'food_items/food_item' %>
+<br/><br/><br/>
+Your name: <%= @order.name %> <br/>
+Your phone number: <%= @order.number %><br/>
+Your Address: <%= @order.address %><br/>
+Delivery Cost: <%= Order::DELIVERY_COST %><br/>
+Total Cost: <%= @order.include_delivery_cost %><br/>
+Date of order: <%= @order.created_at.strftime("%B %d, %Y") %><br/>
+</div>
