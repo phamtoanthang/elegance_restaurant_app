@@ -17,7 +17,9 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cuisine</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Alphabet</a>
+       <% @cuisines.each do |cuisine| %>
+          <%= link_to cuisine, menu_path(cuisine: cuisine), class: "dropdown-item" %>
+      <% end %>
     </div>
   </li>
 </ul>

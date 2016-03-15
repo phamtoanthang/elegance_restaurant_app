@@ -1,7 +1,12 @@
 class FoodItem < ActiveRecord::Base
   has_many :orders
+  
   def self.filter_by_section(section)
   	where(section: section)
+  end
+
+  def self.filter_by_cuisine(cuisine)
+    where(cuisine: cuisine)
   end
   
   def self.sort_by_name(name)
