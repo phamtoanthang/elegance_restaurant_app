@@ -7,6 +7,7 @@ Your name: <%= @order.name %> <br/>
 Your phone number: <%= @order.number %><br/>
 Your Address: <%= @order.address %><br/>
 Delivery Cost: <%= Order::DELIVERY_COST %><br/>
-Total Cost: <%= @order.include_delivery_cost %><br/>
+Total Cost: <%= @order.total_cost %><br/>
+Discount: <%= @order.is_eligible_for_discount ? "50%" : "No discount" %><br/>
 Date of order: <%= @order.created_at.strftime("%B %d, %Y") %><br/>
 </div>
