@@ -1,7 +1,6 @@
 class MenuController < ApplicationController
   def index
   	@sections = %w(Breakfast Lunch Dinner Drinks)
-  	@items_sort = FoodItem.all
 
     @items_by_section_default = FoodItem.order("created_at DESC").filter_by_section(params[:section])   #section
     @items_by_section_sorted_by_name = FoodItem.filter_by_section(params[:section]).sort_by_name(params[:name])
