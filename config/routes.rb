@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'search' => 'menu#search'
   resources :food_items do
     resources :orders
+    resources :comments
   end
   root 'welcome#index'
   get 'thanks' => 'orders#thanks'

@@ -1,6 +1,7 @@
 class FoodItem < ActiveRecord::Base
   is_impressionable :counter_cache => true, :unique => :all
   has_many :orders
+  has_many :comments
   
   def self.filter_by_section(section)
   	where(section: section)
