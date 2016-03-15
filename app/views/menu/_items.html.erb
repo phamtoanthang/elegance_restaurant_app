@@ -1,0 +1,20 @@
+<% @items_sort.each do |food_item| %>
+  <div class="row">
+    <div class="col-sm-4">
+	    <table>
+	      <tbody>
+	        <tr>
+            <td><%= link_to food_item.name, food_item %> </td>          
+	          <td><span class="label label-pill label-primary"><%= food_item.price %></span></td>
+	        </tr>
+	      </tbody>
+	    </table>
+	</div>
+	<div class="col-sm-4">
+		<%= image_tag food_item.url_or_auto %>
+	</div>
+	<div class="col-sm-4">
+		<%= food_item.description %>
+	</div>	
+  </div>
+<% end %>

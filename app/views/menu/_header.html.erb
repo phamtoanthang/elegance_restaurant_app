@@ -1,0 +1,17 @@
+<ul class="nav nav-pills">
+  <% @sections.each do |section| %>
+    <li class="nav-item">
+    <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section ? 'active' : ''}" %>
+    </li>
+  <% end %>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="<%= menu_path(name: "name", section: params[:section]) %>">Alphabet</a>
+      <a class="dropdown-item" href="<%= menu_path(price: "Increasing", section: params[:section]) %>">Price Up</a>
+      <a class="dropdown-item" href="<%= menu_path(price: "Decreasing", section: params[:section]) %>">Price Down</a>
+    </div>
+  </li>
+
+</ul>

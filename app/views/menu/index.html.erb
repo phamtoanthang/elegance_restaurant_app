@@ -1,50 +1,5 @@
 <div class="container">
-
-<%= form_tag(search_path, :method => "get", id: "search-form", class: "form-inline pull-xs-right") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search.." %>
-  <%= submit_tag "Search", class: "btn btn-success-outline" %>
-<% end %>
-
-<ul class="nav nav-pills">
-  <% @sections.each do |section| %>
-    <li class="nav-item">
-    <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section ? 'active' : ''}" %>
-  	</li>
-  <% end %>
-
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="<%= menu_path(name: "name", section: params[:section]) %>">Alphabet</a>
-      <a class="dropdown-item" href="<%= menu_path(price: "Increasing", section: params[:section]) %>">Price Up</a>
-      <a class="dropdown-item" href="<%= menu_path(price: "Decreasing", section: params[:section]) %>">Price Down</a>
-    </div>
-  </li>
-
-</ul>
-
-<% @items_sort.each do |food_item| %>
-  <div class="row">
-    <div class="col-sm-4">
-	    <table>
-	      <tbody>
-	        <tr>
-            <td><%= link_to food_item.name, food_item %> </td>          
-	          <td><span class="label label-pill label-primary"><%= food_item.price %></span></td>
-	        </tr>
-	      </tbody>
-	    </table>
-	</div>
-	<div class="col-sm-4">
-		<%= image_tag food_item.url_or_auto %>
-	</div>
-	<div class="col-sm-4">
-		<%= food_item.description %>
-	</div>	
-  </div>
-<% end %>
-
-
-
-
+<%= render 'search_engine' %>
+<%= render 'header' %>
+<%= render 'items' %>
 </div>
