@@ -7,6 +7,7 @@ class MenuController < ApplicationController
     @items_by_section_sorted_by_name = FoodItem.filter_by_section(params[:section]).sort_by_name(params[:name])
     @items_by_section_sorted_by_price =  FoodItem.filter_by_section(params[:section]).sort_by_price(params[:price])
     @items_by_cuisine = FoodItem.filter_by_cuisine(params[:cuisine])
+    @items_sorted_by_view = FoodItem.sort_by_view(params[:view])
 
     if params[:name] == "name" 
       @items_sort = @items_by_section_sorted_by_name
@@ -14,6 +15,8 @@ class MenuController < ApplicationController
       @items_sort = @items_by_section_sorted_by_price
     elsif params[:cuisine].present? 
       @items_sort = @items_by_cuisine
+    elsif params[:view].present? 
+      @items_sort = @items_sorted_by_view
     else
       @items_sort = @items_by_section_default
     end 

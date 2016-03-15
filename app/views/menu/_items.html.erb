@@ -6,6 +6,7 @@
 	        <tr>
             <td><%= link_to food_item.name, food_item %> </td>          
 	          <td><span class="label label-pill label-primary"><%= food_item.price %></span></td>
+	          <td><span class="label label-pill label-primary"><%= case when food_item.impressions_count.present? then food_item.impressions_count else 0 end %> view(s)</span></td>
 	        </tr>
 	      </tbody>
 	    </table>

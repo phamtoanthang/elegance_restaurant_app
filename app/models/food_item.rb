@@ -1,4 +1,5 @@
 class FoodItem < ActiveRecord::Base
+  is_impressionable :counter_cache => true, :unique => :all
   has_many :orders
   
   def self.filter_by_section(section)
@@ -19,9 +20,11 @@ class FoodItem < ActiveRecord::Base
     else
       order(price: :DESC)
     end
-
   end
 
+  def self.sort_by_view(view)
+    order('case when impressions_count is null then 0 else impressions_count end desc')
+  end
 
   def url_or_auto
   	if url.present?

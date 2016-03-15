@@ -37,7 +37,7 @@ URL: **http://elegance-restaurant.herokuapp.com/**
 
 ### Optional:
 
-* [ ] User can also filter by type of Cuisine.
+* [x] User can also filter by type of Cuisine.
 * [ ] User can see how many times each menu item has been viewed, and sort items by “most viewed”.
 * [ ] User can leave a review (1-5 stars) for each dish, along with a text review.
 * [ ] User can see reviews and an average review score.

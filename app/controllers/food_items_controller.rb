@@ -1,6 +1,9 @@
 class FoodItemsController < ApplicationController
   before_action :set_food_item, only: [:show, :edit, :update, :destroy]
+  # impressionist actions: [:show], unique: [:session_hash]
+  # we're also making use of the :session_hash to keep track of unique views only.
 
+  impressionist actions: [:show]
   # GET /food_items
   # GET /food_items.json
   def index
@@ -69,6 +72,6 @@ class FoodItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_item_params
-      params.require(:food_item).permit(:name, :description, :price, :section, :url, :cuisine)
+      params.require(:food_item).permit(:name, :description, :price, :section, :url, :cuisine, :impressionist_count)
     end
 end
